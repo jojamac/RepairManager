@@ -1,0 +1,13 @@
+{
+  "display": "Screen_Glass",
+  "battery": "Battery_LiPo",
+  "motherboard": "PCB_Main",
+  "charging_port": "USB_C_Flex",
+  "rear_camera": "Camera_Module",
+  "front_camera": "Front_Cam",
+  "speaker": "Speaker_Bottom",
+  "microphone": "Mic_MEMS",
+  "housing": "Chassis_Aluminum",
+  "buttons": "Buttons_Flex",
+  "face_id": "FaceID_Sensor"
+}

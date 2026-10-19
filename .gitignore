@@ -1,0 +1,65 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Production build outputs
+dist/
+dist-ssr/
+build/
+*.local
+
+# Environment & secrets
+.env
+.env.local
+.env.*.local
+*.pem
+serviceAccountKey*.json
+
+# Firebase cache and logs
+.firebase/
+firebase-debug.log*
+firebase-debug.*.log*
+firestore-debug.log*
+ui-debug.log*
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Test coverage
+coverage/
+.nyc_output/
+lib-cov/
+
+# Editor & OS artifacts
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln.docstates
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Temporary files, dumps and screenshots
+Captura de pantalla*
+*.jfif
+code_dump.txt
+dump.ps1
+scratch_*
+
+# Firebase Data Connect
+.dataconnect/
+
+# Package manager files
+.eslintcache
+.node_repl_history
+*.tgz
+.yarn-integrity

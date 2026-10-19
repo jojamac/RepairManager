@@ -1,0 +1,75 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Función auxiliar para saber si la petición viene de un usuario autenticado
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // Función auxiliar para obtener el rol del usuario en la colección /users
+    function getUserData() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() && getUserData().role == 'admin';
+    }
+
+    // Colección system/status: Lectura pública (para saber si el taller fue inicializado)
+    match /system/status {
+      allow read: if true;
+      allow write: if !exists(/databases/$(database)/documents/system/status) || isAdmin();
+    }
+
+    // Colección users: Usuarios autenticados pueden leer perfiles para colaboración interna; solo Admins gestionan
+    match /users/{userId} {
+      allow read: if isAuthenticated();
+      allow create: if !exists(/databases/$(database)/documents/system/status) || isAdmin();
+      allow update, delete: if isAdmin();
+    }
+
+    // Colección orders: Lectura pública (para tracking de cliente) y escritura para personal/tracking
+    match /orders/{orderId} {
+      allow read, write: if true;
+    }
+
+    // Colección clients: Lectura y escritura para cualquier personal autenticado o de la app
+    match /clients/{clientId} {
+      allow read, write: if true;
+    }
+
+    // Colección transactions: Lectura y escritura
+    match /transactions/{transactionId} {
+      allow read, write: if true;
+    }
+
+    // Colección activity_logs: Lectura y escritura
+    match /activity_logs/{logId} {
+      allow read, write: if true;
+    }
+
+    // Colección app_settings: Lectura pública (marcas/datos de tienda), escritura permitida
+    match /app_settings/{settingDoc} {
+      allow read, write: if true;
+    }
+
+    // Gemelos Digitales (digital_twins): Lectura pública (para ver piezas en el portal de tracking) y actualización
+    match /digital_twins/{orderId} {
+      allow read, write: if true;
+    }
+
+    // Colección roles: Roles del sistema y permisos dinámicos
+    match /roles/{roleId} {
+      allow read: if true;
+      allow write: if isAuthenticated() || !exists(/databases/$(database)/documents/system/status);
+    }
+
+    // Colección app_permissions: Catálogo maestro de permisos dinámicos
+    match /app_permissions/{permKey} {
+      allow read: if true;
+      allow write: if isAuthenticated() || !exists(/databases/$(database)/documents/system/status);
+    }
+  }
+}

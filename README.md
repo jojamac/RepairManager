@@ -1,4 +1,4 @@
-# 🚀 EnTuCel Repair Manager
+# 🚀 Repair Manager
 
 > Sistema Integral de Gestión de Reparaciones Técnicas de Dispositivos Móviles, Control Financiero, CRM de Clientes y Gemelo Digital 3D.
 
@@ -18,7 +18,7 @@
 
 ## 📱 Descripción General
 
-**EnTuCel Repair Manager** es una plataforma moderna para talleres de soporte técnico de dispositivos móviles que permite:
+**Repair Manager** es una plataforma moderna para talleres de soporte técnico de dispositivos móviles que permite:
 - **Gestión de Órdenes de Servicio:** Registro de fallas, IMEI, repuestos y firmas digitales.
 - **Gemelo Digital 3D:** Visualización fotorrealista e interactiva despiezada del teléfono con diagnósticos visuales.
 - **Validación de IMEI:** Reglas de negocio para evitar duplicidades de equipos en proceso o inconsistencias de marca/modelo.

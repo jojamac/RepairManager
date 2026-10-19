@@ -63,7 +63,7 @@ src/
 ### Pasos de Instalación
 1. Clonar el repositorio y navegar a la carpeta raíz:
    ```bash
-   cd D:\proyectos\entucel
+   cd D:\proyectos\RepairManager
    ```
 2. Instalar dependencias:
    ```bash
@@ -124,7 +124,7 @@ Para conectar la aplicación a una instancia real en la nube de Firebase:
 ## 📂 Estructura de Directorios
 
 ```
-entucel/
+RepairManager/
  ├── firestore.rules          # Reglas de seguridad de Firestore
  ├── firestore.indexes.json    # Índices compuestos de Firestore
  ├── firebase.json            # Configuración de despliegue de Firebase CLI
